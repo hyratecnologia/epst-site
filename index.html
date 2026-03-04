@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linha do Tempo - Psicologia vs História</title>
+    <title>Fundamentos Epistemológicos e Históricos da Psicologia</title>
     
     <style>
         /* 1. ESTILO GERAL DA PÁGINA */
@@ -136,6 +136,36 @@
 
         .timeline-container:hover .timeline-badge {
             transform: scale(1.2);
+        }
+        /* 7. RESPONSIVIDADE (MOBILE) */
+        @media screen and (max-width: 768px) {
+            /* Move a linha central para o lado esquerdo */
+            .timeline::after {
+                left: 30px;
+            }
+
+            /* Faz os cartões ocuparem a largura total e adiciona recuo na esquerda */
+            .timeline-container {
+                width: 100%;
+                padding-left: 80px; 
+                padding-right: 20px;
+            }
+
+            /* Força os lados esquerdo e direito a começarem do mesmo ponto */
+            .left, .right {
+                left: 0;
+            }
+
+            /* Move todas as bolinhas para a esquerda, sobrepondo a linha */
+            .left .timeline-badge, .right .timeline-badge {
+                left: 0;
+                right: auto; /* Anula o 'right' do .left original */
+            }
+
+            /* Diminui levemente o título para caber melhor na tela */
+            h1 {
+                font-size: 1.8em;
+            }
         }
     </style>
 </head>
