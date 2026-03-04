@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linha do Tempo - Psicologia vs História</title>
+    
+    <style>
+        /* 1. ESTILO GERAL DA PÁGINA */
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-weight: 300;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+
+        /* 2. A LINHA DO TEMPO PRINCIPAL */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #d1d5db;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            z-index: 1;
+        }
+
+        /* 3. CONTAINERS (Esquerda e Direita) */
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .left { left: 0; }
+        .right { left: 50%; }
+
+        /* 4. BOLINHAS COM IMAGENS */
+        .timeline-badge {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: white;
+            border: 4px solid white;
+            top: 20px;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .left .timeline-badge { right: -30px; }
+        .right .timeline-badge { left: -30px; }
+
+        /* Cores Temáticas das Bordas */
+        .badge-psico { border-color: #3498db; } /* Azul */
+        .badge-hist { border-color: #e67e22; }  /* Laranja */
+
+        /* 5. CARTÕES DE TEXTO */
+        .timeline-card {
+            padding: 25px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        /* Cores Temáticas das Datas */
+        .date {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .date-psico { background-color: #3498db; }
+        .date-hist { background-color: #e67e22; }
+
+        .timeline-card h3 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+            font-size: 1.25em;
+        }
+
+        .timeline-card p {
+            margin: 0;
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        /* 6. EFEITO HOVER */
+        .timeline-container:hover .timeline-card {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .timeline-container:hover .timeline-badge {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>A Evolução da Mente e do Mundo</h1>
+    <p class="subtitle">Um comparativo cronológico entre os Antecedentes Filosóficos da Psicologia (em <b>Azul</b>) e o Contexto Histórico e Científico da mesma época (em <b>Laranja</b>).</p>
+    
+    <div class="timeline">
+
+        <div class="timeline-container left">
+            <div class="timeline-badge badge-psico">
+                <img src="https://placehold.co/100/3498db/ffffff?text=Hipocrates" alt="Hipócrates">
+            </div>
+            <div class="timeline-card">
+                <span class="date date-psico">~ 460 a.C.</span>
+                <h3>Hipócrates e o Cérebro</h3>
+                <p>Nascido por volta de 460 a.C. [cite: 42], Hipócrates rejeitou a superstição e ensinou que toda doença resulta de causas naturais[cite: 44, 46]. Ele concluiu brilhantemente que o lado direito do corpo era controlado pelo lado esquerdo do cérebro[cite: 54, 56].</p>
+            </div>
+        </div>
+
+        <div class="timeline-container right">
+            <div class="timeline-badge badge-hist">
+                <img src="https://placehold.co/100/e67e22/ffffff?text=Templos" alt="Medicina dos Templos">
+            </div>
+            <div class="timeline-card">
+                <span class="date date-hist">Até 500 a.C.</span>
+                <h3>A Medicina dos Templos</h3>
+                <p>Antes da abordagem científica de pensadores como Alcmaeon e Hipócrates, a medicina grega ficava nas mãos dos sacerdotes nos templos de Esculápio[cite: 26]. Os pacientes eram isolados em rituais onde o misticismo e a sugestão imperavam[cite: 30, 31].</p>
+            </div>
+        </div>
+
+        <div class="timeline-container left">
+            <div class="timeline-badge badge-psico">
+                <img src="https://placehold.co/100/3498db/ffffff?text=Aristoteles" alt="Aristóteles">
+            </div>
+            <div class="timeline-card">
+                <span class="date date-psico">385 - 322 a.C.</span>
+                <h3>Aristóteles e a Tábula Rasa</h3>
+                <p>O filósofo (385-322 a.C.) adotou a posição empirista, comparando a mente a uma tábula rasa, preenchida apenas pela experiência[cite: 293, 324]. Ele delineou os princípios básicos da memória: similaridade, contraste e contiguidade[cite: 312, 314, 316].</p>
+            </div>
+        </div>
+
+        <div class="timeline-container right">
+            <div class="timeline-badge badge-hist">
+                <img src="https://placehold.co/100/e67e22/ffffff?text=Alexandre" alt="Alexandre, o Grande">
+            </div>
+            <div class="timeline-card">
+                <span class="date date-hist">356 - 323 a.C.</span>
+                <h3>O Império de Alexandre</h3>
+                <p>Durante sua meia-idade, Aristóteles trabalhou por algum tempo como tutor do jovem que se tornaria o imperador Alexandre, o Grande. O império de Alexandre (356-323 a.C.) moldou o mundo antigo e levou à criação da grande biblioteca de Alexandria[cite: 111].</p>
+            </div>
+        </div>
+
+        <div class="timeline-container left">
+            <div class="timeline-badge badge-psico">
+                <img src="https://placehold.co/100/3498db/ffffff?text=Descartes" alt="Descartes">
+            </div>
+            <div class="timeline-card">
+                <span class="date date-psico">1596 - 1650</span>
+                <h3>Descartes e o Dualismo</h3>
+                <p>René Descartes (1596-1650) via o corpo humano como uma máquina[cite: 569, 674]. Sua maior contribuição foi no problema mente-corpo: sugeriu que a mente imaterial e o corpo físico interagem mutuamente [cite: 747, 748, 762], localizando essa união na glândula pineal (conarium)[cite: 811].</p>
+            </div>
+        </div>
+
+        <div class="timeline-container right">
+            <div class="timeline-badge badge-hist">
+                <img src="https://placehold.co/100/e67e22/ffffff?text=Galileu" alt="Julgamento de Galileu">
+            </div>
+            <div class="timeline-card">
+                <span class="date date-hist">1633</span>
+                <h3>O Julgamento de Galileu</h3>
+                <p>A ciência entrava em choque com o dogma. Em 1633, Galileu foi julgado e forçado a assinar uma abjuração de sua defesa do sistema heliocêntrico (a Terra girando ao redor do Sol)[cite: 1340, 1341, 1344]. Descartes desenvolveu suas teorias sob a sombra desse rígido controle teológico[cite: 1512].</p>
+            </div>
+        </div>
+
+        <div class="timeline-container left">
+            <div class="timeline-badge badge-psico">
+                <img src="https://placehold.co/100/3498db/ffffff?text=Locke" alt="Locke">
+            </div>
+            <div class="timeline-card">
+                <span class="date date-psico">1690</span>
+                <h3>Locke: A Mente como Papel em Branco</h3>
+                <p>John Locke publicou seu "Ensaio sobre o entendimento humano"[cite: 892]. Ele argumentou que não existem ideias inatas e que a mente é um papel em branco[cite: 895, 1787]. Para ele, as ideias provêm de duas fontes: a sensação e a reflexão[cite: 900].</p>
+            </div>
+        </div>
+
+        <div class="timeline-container right">
+            <div class="timeline-badge badge-hist">
+                <img src="https://placehold.co/100/e67e22/ffffff?text=Newton" alt="Principia de Newton">
+            </div>
+            <div class="timeline-card">
+                <span class="date date-hist">1687</span>
+                <h3>O Universo de Newton</h3>
+                <p>Exatamente três anos antes da obra de Locke , Isaac Newton publicou seu majestoso *Principia* (1687)[cite: 1435]. Newton descreveu um universo regulado por leis mecânicas, como o mecanismo de um relógio [cite: 1435], o que inspirou filósofos a buscarem regras semelhantes para a mente humana[cite: 1780, 1781].</p>
+            </div>
+        </div>
+
+        <div class="timeline-container left">
+            <div class="timeline-badge badge-psico">
+                <img src="https://placehold.co/100/3498db/ffffff?text=Kant" alt="Kant">
+            </div>
+            <div class="timeline-card">
+                <span class="date date-psico">1781</span>
+                <h3>Kant: O Conhecimento a priori</h3>
+                <p>Como reação aos empiristas, Emmanuel Kant publicou a "Crítica da Razão Pura"[cite: 2350]. Ele defendeu o inatismo, argumentando que noções como tempo e espaço são fundamentais, sendo conhecimentos inatos (*a priori*) que estruturam e possibilitam a própria experiência[cite: 2379, 2381, 2386].</p>
+            </div>
+        </div>
+
+        <div class="timeline-container right">
+            <div class="timeline-badge badge-hist">
+                <img src="https://placehold.co/100/e67e22/ffffff?text=EUA" alt="Constituição dos EUA">
+            </div>
+            <div class="timeline-card">
+                <span class="date date-hist">1787</span>
+                <h3>A Constituição dos Estados Unidos</h3>
+                <p>Nesta década de fervilhamento intelectual, a política também passava por revoluções. No verão de 1787, líderes como Washington e Franklin elaboraram a Constituição dos Estados Unidos [cite: 1726], sendo profundamente guiados pelos tratados de governo escritos anteriormente pelo empirista John Locke[cite: 1725, 1726].</p>
+            </div>
+        </div>
+
+        <div class="timeline-container left">
+            <div class="timeline-badge badge-psico">
+                <img src="https://placehold.co/100/3498db/ffffff?text=Mill" alt="J.S. Mill">
+            </div>
+            <div class="timeline-card">
+                <span class="date date-psico">1843</span>
+                <h3>John Stuart Mill e a Química Mental</h3>
+                <p>J.S. Mill publicou seu influente "Sistema de Lógica"[cite: 2257]. Ele substituiu a metáfora mecânica do pai por uma "química mental", argumentando que a associação de ideias cria sínteses novas, onde o todo é maior que a simples soma de ideias simples[cite: 1121, 1122, 2256].</p>
+            </div>
+        </div>
+
+        <div class="timeline-container right">
+            <div class="timeline-badge badge-hist">
+                <img src="https://placehold.co/100/e67e22/ffffff?text=Babbage" alt="Máquina de Babbage">
+            </div>
+            <div class="timeline-card">
+                <span class="date date-hist">Séc. XIX</span>
+                <h3>A Máquina Analítica</h3>
+                <p>O conceito de seres humanos operando como máquinas atingiu o ápice com as invenções de Charles Babbage[cite: 588, 640]. Sua calculadora foi a precursora dos computadores modernos [cite: 641], marcando a primeira tentativa de sucesso na reprodução do processo cognitivo humano em uma máquina[cite: 604, 641].</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
